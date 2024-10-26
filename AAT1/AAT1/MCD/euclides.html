@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de MCD</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f7f7f7;
+            margin: 0;
+        }
+        .calculator {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+        input[type="number"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #result {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+        table {
+            width: 100%;
+            margin-top: 10px;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h2>Calculadora de MCD</h2>
+        <input type="number" id="num1" placeholder="Número 1" required>
+        <input type="number" id="num2" placeholder="Número 2" required>
+        <button onclick="calculateMCD()">Calcular MCD</button>
+        <button>
+            <a style="text-decoration: none; color: white;" href="../index.html">Atras</a>
+        </button>
+        <div id="result"></div>
+        <table id="euclidTable" style="display: none;">
+            <thead>
+                <tr>
+                    <th>a</th>
+                    <th>b</th>
+                    <th>a % b</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <script>
+        function calculateMCD() {
+            const num1 = parseInt(document.getElementById('num1').value);
+            const num2 = parseInt(document.getElementById('num2').value);
+            if (isNaN(num1) || isNaN(num2)) {
+                document.getElementById('result').textContent = 'Por favor, ingrese ambos números.';
+                return;
+            }
+
+            let a = Math.abs(num1);
+            let b = Math.abs(num2);
+            const tableBody = document.querySelector('#euclidTable tbody');
+            tableBody.innerHTML = '';
+
+            while (b) {
+                const remainder = a % b;
+                const row = document.createElement('tr');
+                row.innerHTML = `<td>${a}</td><td>${b}</td><td>${remainder}</td>`;
+                tableBody.appendChild(row);
+                [a, b] = [b, remainder];
+            }
+
+            document.getElementById('result').textContent = `El MCD es: ${a}`;
+            document.getElementById('euclidTable').style.display = 'table';
+        }
+    </script>
+</body>
+</html>

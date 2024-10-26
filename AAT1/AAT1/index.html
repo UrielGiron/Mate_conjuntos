@@ -1,0 +1,286 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sistema de Gestión de Notas Educativas</title>
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <!-- Google Fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+        <!-- Custom CSS -->
+        <style>
+            body {
+                background-color: #0D1C26;
+                font-family: 'Roboto', sans-serif;
+            }
+            .sidebar {
+                background-color: #F2F2F2;
+                color: #050B0D;
+                transition: background-color 0.3s ease-in-out;
+            }
+
+            .sidebar .nav-link {
+                color: #0D0D0D;
+                transition: color 0.3s ease-in-out;
+            }
+
+            .sidebar .nav-link.active {
+                color: #FFFFFF;
+                background-color: #050B0D;
+            }
+
+            .sidebar .nav-link:hover {
+                color: #FFFFFF;
+                background-color: #050B0D;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                transform: scale(1.05);
+                transition: background-color 0.3s ease, transform 0.2s ease;
+            }
+
+            .card {
+                border: none;
+                border-radius: 15px;
+                transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+                overflow: hidden;
+                color: #FFFFFF;
+                box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+            }
+
+            .card.card-1 {
+                background-color: #3498DB; /* Azul */
+            }
+
+            .card.card-2 {
+                background-color: #E74C3C; /* Rojo */
+            }
+
+            .card.card-3 {
+                background-color: #2ECC71; /* Verde */
+            }
+
+            .card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            }
+
+            .card-header {
+                background: none; /* Elimina el degradado del encabezado */
+                border-bottom: none;
+                padding: 1rem;
+                text-align: center;
+            }
+
+            .card-header i {
+                font-size: 2.5rem;
+            }
+
+            .card-body {
+                padding: 1.5rem;
+                text-align: center;
+            }
+
+            .card-body h5 {
+                margin-bottom: 1rem;
+            }
+
+            .btn-primary {
+                background-color: #3498DB;
+                border: none;
+                transition: background-color 0.3s ease;
+            }
+
+            .btn-primary:hover {
+                background-color: #2980B9;
+            }
+            .descargas {
+            padding: 2rem;
+        }
+        .button {
+            display: inline-block;
+            margin: 1rem;
+            border: none;
+            background-color: #3498DB; /* Azul */
+            border-radius: 10px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .button:hover {
+            background-color: #2980B9;
+            transform: scale(1.05);
+        }
+        .button a {
+            color: #FFFFFF;
+            text-decoration: none;
+            display: block;
+            padding: 1rem;
+            text-align: center;
+        }
+        .button_text {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        .button_lg {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        </style>
+    </head>
+    <body>
+
+        <div class="container-fluid">
+            <div class="row">
+                <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
+                    <div class="position-sticky pt-3">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="./index.html">
+                                    <i class="fas fa-home"></i>
+                                    Menu Principal
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./MCD/MCD.html">
+                                    <i class="fas fa-user-graduate"></i>
+                                    MCD
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./Permutaciones/index.html">
+                                    <i class="fas fa-book"></i>
+                                    Permutaciones
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./Union_Interseccion/conjuntos.html">
+                                    <i class="fas fa-chalkboard-teacher"></i>
+                                    Union e Interseccion
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./Combinaciones/combinacion.html">
+                                    <i class="fas fa-clipboard-list"></i>
+                                    Combinaciones
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/grafos/index.html">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    Grafos
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+
+                <main class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                        <h1 class="h2">Proyecto Final.</h1>
+                    </div>
+                    <div class="row">
+        <div class="col-md-4">
+            <div class="card card-1 mb-4">
+                <div class="card-header">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-bar-chart-fill" viewBox="0 0 16 16">
+                        <path d="M1 11a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1zm5-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1z"/>
+                      </svg><!-- Nuevo ícono -->
+                    <h4 class="my-0 font-weight-normal">Maximo Comun Divisor </h4>
+                </div>
+                <div class="card-body">
+                    <!-- <h5 class="card-title">MCD</h5> -->
+                    <p class="card-text">Se Mostrara 2 Formas de Calcular el Maximo Comun Divisor de 2 Numeros.</p>
+                    <a href="./MCD/MCD.html" class="btn btn-primary">Ver mas</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card card-2 mb-4">
+                <div class="card-header">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="currentColor" class="bi bi-braces" viewBox="0 0 16 16">
+                        <path d="M2.114 8.063V7.9c1.005-.102 1.497-.615 1.497-1.6V4.503c0-1.094.39-1.538 1.354-1.538h.273V2h-.376C3.25 2 2.49 2.759 2.49 4.352v1.524c0 1.094-.376 1.456-1.49 1.456v1.299c1.114 0 1.49.362 1.49 1.456v1.524c0 1.593.759 2.352 2.372 2.352h.376v-.964h-.273c-.964 0-1.354-.444-1.354-1.538V9.663c0-.984-.492-1.497-1.497-1.6M13.886 7.9v.163c-1.005.103-1.497.616-1.497 1.6v1.798c0 1.094-.39 1.538-1.354 1.538h-.273v.964h.376c1.613 0 2.372-.759 2.372-2.352v-1.524c0-1.094.376-1.456 1.49-1.456V7.332c-1.114 0-1.49-.362-1.49-1.456V4.352C13.51 2.759 12.75 2 11.138 2h-.376v.964h.273c.964 0 1.354.444 1.354 1.538V6.3c0 .984.492 1.497 1.497 1.6"/>
+                      </svg></i> <!-- Nuevo ícono -->
+                    <h4 class="my-0 font-weight-normal">Permutaciones</h4>
+                </div>
+                <div class="card-body">
+                    <!-- <h5 class="card-title">Calculadora</h5> -->
+                    <p class="card-text">Se mostrara el despliege de las permutaciones.</p>
+                    <a href="./Permutaciones/index.html" class="btn btn-primary">Ver más</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card card-3 mb-4">
+                <div class="card-header">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-diagram-2-fill" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M6 3.5A1.5 1.5 0 0 1 7.5 2h1A1.5 1.5 0 0 1 10 3.5v1A1.5 1.5 0 0 1 8.5 6v1H11a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0V8h-5v.5a.5.5 0 0 1-1 0v-1A.5.5 0 0 1 5 7h2.5V6A1.5 1.5 0 0 1 6 4.5zm-3 8A1.5 1.5 0 0 1 4.5 10h1A1.5 1.5 0 0 1 7 11.5v1A1.5 1.5 0 0 1 5.5 14h-1A1.5 1.5 0 0 1 3 12.5zm6 0a1.5 1.5 0 0 1 1.5-1.5h1a1.5 1.5 0 0 1 1.5 1.5v1a1.5 1.5 0 0 1-1.5 1.5h-1A1.5 1.5 0 0 1 9 12.5z"/>
+                      </svg> <!-- Nuevo ícono -->
+                    <h4 class="my-0 font-weight-normal">Union e Interseccion</h4>
+                </div>
+                <div class="card-body">
+                    <!-- <h5 class="card-title">Conjuntos </h5> -->
+                    <p class="card-text">Se mostrará el despliegue de los Conjuntos de union e interseccion.</p>
+                    <a href="./Union_Interseccion/conjuntos.html" class="btn btn-primary">Ver más</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card card-2 mb-4">
+                <div class="card-header">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="currentColor" class="bi bi-medium" viewBox="0 0 16 16">
+                        <path d="M9.025 8c0 2.485-2.02 4.5-4.513 4.5A4.506 4.506 0 0 1 0 8c0-2.486 2.02-4.5 4.512-4.5A4.506 4.506 0 0 1 9.025 8m4.95 0c0 2.34-1.01 4.236-2.256 4.236S9.463 10.339 9.463 8c0-2.34 1.01-4.236 2.256-4.236S13.975 5.661 13.975 8M16 8c0 2.096-.355 3.795-.794 3.795-.438 0-.793-1.7-.793-3.795 0-2.096.355-3.795.794-3.795.438 0 .793 1.699.793 3.795"/>
+                      </svg>
+                    <h4 class="my-0 font-weight-normal">Combinaciones</h4>
+                </div>
+                <div class="card-body">
+                    <!-- <h5 class="card-title">Consultar Inscripciones</h5> -->
+                    <p class="card-text">Se mostrará el despliegue de las Incripciones</p>
+                    <a href="./Estudiante/consultar-estudiante.php" class="btn btn-primary">Ver más</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card card-3 mb-4">
+                <div class="card-header">
+                    <i class="fas fa-file-alt"></i>
+                    <h4 class="my-0 font-weight-normal">Grafos</h4>
+                </div>
+                <div class="card-body">
+                    <!-- <h5 class="card-title">Consultar Notas</h5> -->
+                    <p class="card-text">Se mostrará el despliegue de como generar grafos.</p>
+                    <a href="./grafos/index.html" class="btn btn-primary">Ver más</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <section class="descargas text-center">
+            <button class="button">
+                <span class="button_lg">
+                    <a href="./Docs/Manual de Usuario F.pdf" download="Manual de Usuario" target="_blank">
+                        <span class="button_text">Descargar Manual de Usuario</span>
+                    </a>
+                </span>
+            </button>
+            <button class="button">
+                <span class="button_lg">
+                    <a href="./Docs/Manual Tecnico F.pdf" download="Manual Tecnico target="_blank">
+                        <span class="button_text">Descargar Manual Técnico</span>
+                    </a>
+                </span>
+            </button>
+        </section>
+    </div>
+
+                </main>
+            </div>
+        </div>
+
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    </body>
+    </html>

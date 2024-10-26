@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unión de Conjuntos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            text-align: bottom;
+            margin-bottom: 20px;
+        }
+        form {
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            font-size: 16px;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Unión de Conjuntos</h1>
+    <form id="setForm">
+        <label for="setA">Conjunto A (separado por comas):</label>
+        <input type="text" id="setA" required>
+        <label for="setB">Conjunto B (separado por comas):</label>
+        <input type="text" id="setB" required>
+        <button type="submit">Mostrar Unión</button>
+    </form>
+    <div class="result" id="result"></div>
+
+    <script>
+        document.getElementById('setForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const setA = new Set(document.getElementById('setA').value.split(',').map(item => item.trim()));
+            const setB = new Set(document.getElementById('setB').value.split(',').map(item => item.trim()));
+            displayUnion(setA, setB);
+        });
+
+        function displayUnion(setA, setB) {
+            const union = new Set([...setA, ...setB]);
+            const resultDiv = document.getElementById('result');
+            resultDiv.textContent = `A ∪ B = { ${[...union].join(', ')} }`;
+        }
+    </script>
+</body>
+</html>

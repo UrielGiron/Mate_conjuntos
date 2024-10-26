@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Combinaciones</title>
+    <link rel="stylesheet" href="./style.css">
+    <!-- MathJax para renderizar LaTeX -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de Combinaciones</h1>
+        <label for="n">Valor de n (número total de elementos):</label>
+        <input type="number" id="n" min="0" required>
+        
+        <label for="k">Valor de k (tamaño de las combinaciones):</label>
+        <input type="number" id="k" min="0" required>
+        
+        <button onclick="calcularCombinaciones()">Calcular</button>
+        
+        <div id="resultado"></div>
+        <div id="formula"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

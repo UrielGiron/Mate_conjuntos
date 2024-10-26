@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagramas de Venn</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        form {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        #venn {
+            margin-top: 20px;
+        }
+        .venn-circle path {
+            fill-opacity: 0.5;
+        }
+        .label {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Diagramas de Venn de Unión</h1>
+    <form id="setForm">
+        <label for="setA">Conjunto A (separado por comas):</label>
+        <input type="text" id="setA" required>
+        <label for="setB">Conjunto B (separado por comas):</label>
+        <input type="text" id="setB" required>
+        <button type="submit">Generar Diagrama</button>
+    </form>
+    <div id="venn"></div>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/venn.js/0.2.20/venn.min.js"></script>
+    <script>
+        document.getElementById('setForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const setA = new Set(document.getElementById('setA').value.split(',').map(item => item.trim()));
+            const setB = new Set(document.getElementById('setB').value.split(',').map(item => item.trim()));
+            generateVennDiagram(setA, setB);
+        });
+
+        function generateVennDiagram(setA, setB) {
+            const union = new Set([...setA, ...setB]);
+            const intersection = new Set([...setA].filter(x => setB.has(x)));
+
+            const setsData = [
+                { sets: ['A'], size: setA.size, label: `A: ${[...setA].join(', ')}` },
+                { sets: ['B'], size: setB.size, label: `B: ${[...setB].join(', ')}` },
+                { sets: ['A', 'B'], size: intersection.size, label: `A ∩ B: ${[...intersection].join(', ')}` }
+            ];
+
+            const chart = venn.VennDiagram();
+            d3.select("#venn").datum(setsData).call(chart);
+
+            d3.selectAll("#venn .venn-circle path")
+                .style("fill-opacity", 0.5);
+
+            d3.selectAll("#venn text")
+                .style("fill", "black");
+        }
+    </script>
+</body>
+</html>

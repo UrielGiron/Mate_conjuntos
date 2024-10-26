@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarjetas con Botones</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            gap: 16px;
+            padding: 16px;
+        }
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 16px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            max-width: 300px;
+        }
+        .card-1 {
+            background-color: #082f49;
+            color: #fff;
+        }
+        .card-2 {
+            background-color: #082f49;
+            color: #fff;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 10px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card card-1">
+            <h2>Inteseccion. </h2>
+            <p>En esta parte encontrara una calculadora donde nos mostrara graficamente la interseccion de conjuntos.</p>
+            <a href="./inteseccion.html" class="button">Interseccion</a>
+        </div>
+        <div class="card card-2">
+            <h2>Union de Conjuntos</h2>
+            <p>Aca podras encontrar una calculadora en donde podras generar la union de los conjuntos.</p>
+            <a href="./union.html" class="button">Union</a>
+        </div>
+    </div>
+</body>
+</html>
